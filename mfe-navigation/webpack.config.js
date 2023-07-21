@@ -25,7 +25,7 @@ module.exports = {
         static: {
             directory: path.join(__dirname, "dist")
         },
-        port: 3001,
+        port: 3002,
     },
     output: {
         filename: '[name].[contenthash].js',
@@ -74,9 +74,11 @@ module.exports = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: "home",
-            remotes: {
-                mfeNavigation: "mfeNavigation@http://localhost:3002/remoteEntry.js"
+            name: "mfeNavigation",
+            filename: "remoteEntry.js",
+            exposes: {
+                "./mountHeader": "./src/exposedModules/mountHeader",
+                "./mountFooter": "./src/exposedModules/mountFooter",
             }
         }),
         // new ModuleFederationPlugin({
