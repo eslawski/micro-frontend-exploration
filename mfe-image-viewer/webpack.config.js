@@ -1,3 +1,5 @@
+const { VueLoaderPlugin } = require("vue-loader");
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
 const deps = require("./package.json");
@@ -25,7 +27,7 @@ module.exports = {
         static: {
             directory: path.join(__dirname, "dist")
         },
-        port: 3001,
+        port: 3003,
     },
     output: {
         filename: '[name].[contenthash].js',
@@ -42,24 +44,19 @@ module.exports = {
                 },
             },
             {
-                test: /\.less$/,
-                use: [
-                    {
-                        loader: 'style-loader',
-                    },
-                    {
-                        loader: 'css-loader',
-                    },
-                    {
-                        loader: 'less-loader',
-                        options: {
-                            lessOptions: {
-                                javascriptEnabled: true,
-                                math: 'always',
-                            },
+                test: /\.vue$/,
+                use: {
+                    loader: "vue-loader",
+                    options: {
+                        compilerOptions: {
+                            hotReload: false,
                         },
                     },
-                ],
+                },
+            },
+            {
+                test: /\.(scss|css)$/,
+                use: ["style-loader", "css-loader"],
             },
             {
                 test: /\.jsx?$/,
@@ -73,11 +70,12 @@ module.exports = {
         ],
     },
     plugins: [
+        new VueLoaderPlugin(),
         new ModuleFederationPlugin({
-            name: "home",
-            remotes: {
-                mfeNavigation: "mfeNavigation@http://localhost:3002/remoteEntry.js",
-                mfeImageViewer: "mfeImageViewer@http://localhost:3003/remoteEntry.js"
+            name: "mfeImageViewer",
+            filename: "remoteEntry.js",
+            exposes: {
+                "./mountImageViewer": "./src/exposedModules/mountImageViewer"
             }
         }),
         // new ModuleFederationPlugin({
