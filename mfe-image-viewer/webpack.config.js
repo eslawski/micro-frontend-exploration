@@ -3,6 +3,7 @@ const { VueLoaderPlugin } = require("vue-loader");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
 const deps = require("./package.json");
+const webpack = require("webpack");
 
 // const { readFileSync } = require('fs');
 // const tokens = readFileSync(__dirname + '/../.env')
@@ -114,6 +115,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './public/index.html',
             excludeChunks: ['remoteEntry'],
+        }),
+        new webpack.DefinePlugin({
+            __VUE_OPTIONS_API__: true,
+            __VUE_PROD_DEVTOOLS__: false,
         }),
         // new DashboardPlugin({
         //     versionStrategy: `${Date.now()}`,
