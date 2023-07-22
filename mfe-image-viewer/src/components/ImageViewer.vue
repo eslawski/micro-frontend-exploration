@@ -1,10 +1,12 @@
 <template>
     <div class="image-viewer">
-
+        <div ref="theImage" />
     </div>
 </template>
 
 <script>
+
+import { mountImage } from "mfeImage/mountImage";
 
 export default {
     name: "ImageViewer",
@@ -14,7 +16,8 @@ export default {
         }
     },
     mounted() {
-        console.log("mounted!");
+        const imageMountPoint = this.$refs.theImage;
+        mountImage(imageMountPoint);
     },
     methods: {
         doSomethingCrazy() {
