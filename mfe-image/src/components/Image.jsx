@@ -2,8 +2,8 @@ import React from 'react';
 
 const imageStyle = {
     backgroundColor: "#FFD580",
-    height: 300,
-    width: 300
+    height: 200,
+    width: 200
 }
 
 const Image = () => {

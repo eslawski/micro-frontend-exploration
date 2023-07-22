@@ -1,6 +1,9 @@
+const { VueLoaderPlugin } = require("vue-loader");
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
 const deps = require("./package.json");
+const webpack = require("webpack");
 
 // const { readFileSync } = require('fs');
 // const tokens = readFileSync(__dirname + '/../.env')
@@ -25,7 +28,7 @@ module.exports = {
         static: {
             directory: path.join(__dirname, "dist")
         },
-        port: 3001,
+        port: 3005,
     },
     output: {
         filename: '[name].[contenthash].js',
@@ -42,24 +45,19 @@ module.exports = {
                 },
             },
             {
-                test: /\.less$/,
-                use: [
-                    {
-                        loader: 'style-loader',
-                    },
-                    {
-                        loader: 'css-loader',
-                    },
-                    {
-                        loader: 'less-loader',
-                        options: {
-                            lessOptions: {
-                                javascriptEnabled: true,
-                                math: 'always',
-                            },
+                test: /\.vue$/,
+                use: {
+                    loader: "vue-loader",
+                    options: {
+                        compilerOptions: {
+                            hotReload: false,
                         },
                     },
-                ],
+                },
+            },
+            {
+                test: /\.(scss|css)$/,
+                use: ["style-loader", "css-loader"],
             },
             {
                 test: /\.jsx?$/,
@@ -73,12 +71,15 @@ module.exports = {
         ],
     },
     plugins: [
+        new VueLoaderPlugin(),
         new ModuleFederationPlugin({
-            name: "home",
+            name: "mfeImageRecommender",
+            filename: "remoteEntry.js",
+            exposes: {
+                "./mountImageRecommender": "./src/exposedModules/mountImageRecommender"
+            },
             remotes: {
-                mfeNavigation: "mfeNavigation@http://localhost:3002/remoteEntry.js",
-                mfeImageViewer: "mfeImageViewer@http://localhost:3003/remoteEntry.js",
-                mfeImageRecommender: "mfeImageRecommender@http://localhost:3005/remoteEntry.js"
+                mfeImage: "mfeImage@http://localhost:3004/remoteEntry.js"
             }
         }),
         // new ModuleFederationPlugin({
@@ -117,6 +118,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './public/index.html',
             excludeChunks: ['remoteEntry'],
+        }),
+        new webpack.DefinePlugin({
+            __VUE_OPTIONS_API__: true,
+            __VUE_PROD_DEVTOOLS__: false,
         }),
         // new DashboardPlugin({
         //     versionStrategy: `${Date.now()}`,

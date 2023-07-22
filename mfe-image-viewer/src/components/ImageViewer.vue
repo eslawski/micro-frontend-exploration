@@ -31,7 +31,8 @@ export default {
 
 .image-viewer {
     background-color: lightblue;
-    height: 500px;
+    height: 400px;
+    padding: 20px;
 }
 
 </style>
