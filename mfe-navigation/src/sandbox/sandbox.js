@@ -1,7 +1,8 @@
 import React from 'react';
-import { mountFooter } from "./exposedModules/mountFooter";
-import { mountHeader } from "./exposedModules/mountHeader";
+import { mountFooter } from "../exposedModules/mountFooter";
+import { mountHeader } from "../exposedModules/mountHeader";
 
+import "./sandboxStyles.css";
 
 const sandbox = document.getElementById("mfe-navigation__sandbox");
 if (sandbox) {

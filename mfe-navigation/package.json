@@ -15,6 +15,7 @@
     "less-loader": "11.1.0",
     "serve": "14.0.1",
     "style-loader": "3.3.2",
+    "terser-webpack-plugin": "^5.3.9",
     "webpack": "5.80.0",
     "webpack-cli": "4.10.0",
     "webpack-dev-server": "4.11.1"
@@ -25,6 +26,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
+    "@ithaka/pharos": "^12.20.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   }

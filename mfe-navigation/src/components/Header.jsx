@@ -1,4 +1,6 @@
 import React from 'react';
+import { PharosButton } from "@ithaka/pharos/lib/react-components/button/pharos-button";
+import { PharosContext } from "@ithaka/pharos/lib/utils/PharosContext";
 
 const headerStyle = {
     border: "3px dotted limegreen",
@@ -7,10 +9,15 @@ const headerStyle = {
 }
 
 const Header = () => {
+    const pharosContext = { prefix: "mfe-navigation" };
+
     return (
-        <div style={headerStyle}>
-            I am header
-        </div>
+        <PharosContext.Provider value={pharosContext}>
+            <div className="header" style={headerStyle}>
+                Microfrontend Playground
+                <PharosButton>Hello</PharosButton>
+            </div>
+        </PharosContext.Provider>
     );
 };
 

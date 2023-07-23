@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
 const deps = require("./package.json");
+const TerserPlugin = require("terser-webpack-plugin");
 
 // const { readFileSync } = require('fs');
 // const tokens = readFileSync(__dirname + '/../.env')
@@ -42,22 +43,13 @@ module.exports = {
                 },
             },
             {
-                test: /\.less$/,
+                test: /\.css$/,
                 use: [
                     {
                         loader: 'style-loader',
                     },
                     {
                         loader: 'css-loader',
-                    },
-                    {
-                        loader: 'less-loader',
-                        options: {
-                            lessOptions: {
-                                javascriptEnabled: true,
-                                math: 'always',
-                            },
-                        },
                     },
                 ],
             },
@@ -133,4 +125,15 @@ module.exports = {
         //     },
         // }),
     ],
+    optimization: {
+        chunkIds: "named",
+        minimizer: [
+            new TerserPlugin({
+                terserOptions: {
+                    keep_classnames: /^Pharos/,
+                    keep_fnames: /^Pharos/,
+                },
+            }),
+        ],
+    },
 };
