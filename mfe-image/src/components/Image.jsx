@@ -1,7 +1,8 @@
 import React from 'react';
 
 const imageStyle = {
-    backgroundColor: "#FFD580",
+    border: "3px dotted gold",
+    borderRadius: 10,
     height: 200,
     width: 200
 }

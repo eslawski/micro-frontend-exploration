@@ -1,9 +1,12 @@
 <template>
     <div class="image-recommender">
-        <div ref="theImage" />
-        <div ref="theImage1" />
-        <div ref="theImage2" />
-        <div ref="theImage3" />
+        <h2>Similar Images</h2>
+        <div class="image-list">
+            <div ref="theImage" />
+            <div ref="theImage1" />
+            <div ref="theImage2" />
+            <div ref="theImage3" />
+        </div>
     </div>
 </template>
 
@@ -42,8 +45,16 @@ export default {
 <style scoped>
 
 .image-recommender {
-    background-color: lightcoral;
+    border: 3px dotted lightcoral;
+    border-radius: 10px;
     padding: 20px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.image-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items: center;

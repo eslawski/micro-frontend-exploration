@@ -1,7 +1,8 @@
 import React from 'react';
 
 const headerStyle = {
-    backgroundColor: "lightgrey",
+    border: "3px dotted limegreen",
+    borderRadius: 10,
     padding: 20
 }
 

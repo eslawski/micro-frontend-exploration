@@ -30,9 +30,10 @@ export default {
 <style scoped>
 
 .image-viewer {
-    background-color: lightblue;
-    height: 400px;
+    border: 3px dotted dodgerblue;
+    border-radius: 10px;
     padding: 20px;
+    height: 400px;
 }
 
 </style>

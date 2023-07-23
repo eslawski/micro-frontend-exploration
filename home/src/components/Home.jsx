@@ -6,6 +6,14 @@ import { mountFooter } from "mfeNavigation/mountFooter";
 import { mountImageViewer } from "mfeImageViewer/mountImageViewer";
 import { mountImageRecommender } from "mfeImageRecommender/mountImageRecommender";
 
+
+const layoutStyle = {
+    maxWidth: 1200,
+    margin: "auto",
+    display: "grid",
+    gridGap: 20
+}
+
 const Home = () => {
 
     const headerMountPointRef = useRef(null);
@@ -22,7 +30,7 @@ const Home = () => {
 
 
     return (
-        <div style={{ maxWidth: 1200, margin: 'auto' }}>
+        <div style={layoutStyle}>
 
             <div ref={headerMountPointRef}></div>
 
