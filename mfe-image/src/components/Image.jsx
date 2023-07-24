@@ -1,15 +1,12 @@
 import React from 'react';
 
-const imageStyle = {
-    border: "3px dotted gold",
-    borderRadius: 10,
-    height: 200,
-    width: 200
-}
+import "./styles/image.css"
 
-const Image = () => {
+const Image = (props) => {
     return (
-        <div style={imageStyle} />
+        <div className="image">
+            <img src={props.imageUrl} alt=""/>
+        </div>
     );
 };
 

@@ -12,7 +12,7 @@ const Header = () => {
         <PharosContext.Provider value={pharosContext}>
             <div className="header">
                 <div>
-                    <h3 className="header__title"><PharosIcon name="workspace" /> Microfrontend Playground</h3>
+                    <h3 className="header__title"><PharosIcon name="workspace" /> Micro Frontend Playground</h3>
                 </div>
 
                 <div className="header__links">

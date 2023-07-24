@@ -1,4 +1,4 @@
-import { mountImageViewer } from "./exposedModules/mountImageViewer";
+import { mountImageViewer } from "../exposedModules/mountImageViewer";
 
 
 const sandbox = document.getElementById("mfe-image-viewer__sandbox");

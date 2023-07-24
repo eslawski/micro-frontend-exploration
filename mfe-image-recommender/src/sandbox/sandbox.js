@@ -1,4 +1,4 @@
-import { mountImageRecommender } from "./exposedModules/mountImageRecommender";
+import { mountImageRecommender } from "../exposedModules/mountImageRecommender";
 
 
 const sandbox = document.getElementById("mfe-image-recommender__sandbox");

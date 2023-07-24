@@ -17,7 +17,7 @@ export default {
     },
     mounted() {
         const imageMountPoint = this.$refs.theImage;
-        mountImage(imageMountPoint);
+        mountImage(imageMountPoint, { imageUrl : "https://picsum.photos/id/76/175" });
     },
     methods: {
         doSomethingCrazy() {

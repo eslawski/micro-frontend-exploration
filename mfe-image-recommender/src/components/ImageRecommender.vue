@@ -23,16 +23,16 @@ export default {
     },
     mounted() {
         const imageMountPoint = this.$refs.theImage;
-        mountImage(imageMountPoint);
+        mountImage(imageMountPoint, { imageUrl : "https://picsum.photos/id/103/175" });
 
         const imageMountPoint1 = this.$refs.theImage1;
-        mountImage(imageMountPoint1);
+        mountImage(imageMountPoint1, { imageUrl : "https://picsum.photos/id/435/175" });
 
         const imageMountPoint2 = this.$refs.theImage2;
-        mountImage(imageMountPoint2);
+        mountImage(imageMountPoint2, { imageUrl : "https://picsum.photos/id/34/175" });
 
         const imageMountPoint3 = this.$refs.theImage3;
-        mountImage(imageMountPoint3);
+        mountImage(imageMountPoint3, { imageUrl : "https://picsum.photos/id/78/175" });
     },
     methods: {
         doSomethingCrazy() {

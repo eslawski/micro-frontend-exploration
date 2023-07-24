@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <PharosContext.Provider value={pharosContext}>
             <div className="footer">
-                <div>©2023 Microfrontend Playground</div>
+                <div>©2023 Micro Frontend Playground</div>
                 <div className="footer__socials">
                     <PharosButton icon="twitter" variant="subtle" />
                     <PharosButton icon="google" variant="subtle" />
