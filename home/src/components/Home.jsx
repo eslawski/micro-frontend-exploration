@@ -6,13 +6,7 @@ import { mountFooter } from "mfeNavigation/mountFooter";
 import { mountImageViewer } from "mfeImageViewer/mountImageViewer";
 import { mountImageRecommender } from "mfeImageRecommender/mountImageRecommender";
 
-
-const layoutStyle = {
-    maxWidth: 1200,
-    margin: "auto",
-    display: "grid",
-    gridGap: 20
-}
+import "../styles/home.css"
 
 const Home = () => {
 
@@ -30,7 +24,7 @@ const Home = () => {
 
 
     return (
-        <div style={layoutStyle}>
+        <div className="home">
 
             <div ref={headerMountPointRef}></div>
 

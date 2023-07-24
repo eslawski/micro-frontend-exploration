@@ -42,22 +42,13 @@ module.exports = {
                 },
             },
             {
-                test: /\.less$/,
+                test: /\.css$/,
                 use: [
                     {
                         loader: 'style-loader',
                     },
                     {
                         loader: 'css-loader',
-                    },
-                    {
-                        loader: 'less-loader',
-                        options: {
-                            lessOptions: {
-                                javascriptEnabled: true,
-                                math: 'always',
-                            },
-                        },
                     },
                 ],
             },
