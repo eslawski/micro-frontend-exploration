@@ -89,6 +89,7 @@ export default {
 
 .right .text {
     font-size: 20px;
+    color: #414141;
 }
 
 </style>
