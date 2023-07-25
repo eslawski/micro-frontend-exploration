@@ -19,6 +19,15 @@ $ yarn install
 $ yarn start
 ```
 
+Or you can build each for production and serve the files:
+
+```shell
+$ cd /<app_dir>
+$ yarn install
+$ yarn build
+$ yarn serve 
+```
+
 Once started, you can visit the composed `home` app or any of the individual MFEs by using their url:
 
 - `home`: http://localhost:3001
