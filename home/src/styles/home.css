@@ -1,4 +1,5 @@
-@import '@ithaka/pharos/lib/styles/variables.css';
+@import "@ithaka/pharos/lib/styles/fonts.css";
+@import "@ithaka/pharos/lib/styles/variables.css";
 
 .home {
     max-width: 1200px;

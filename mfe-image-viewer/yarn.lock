@@ -367,6 +367,35 @@
   resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/@esbuild/win32-x64/-/win32-x64-0.16.17.tgz#c5a1a4bfe1b57f0c3e61b29883525c6da3e5c091"
   integrity sha512-y+EHuSchhL7FjHgvQL/0fnnFmO4T1bhvWANX6gcnqTjtnKWbTvUMCpGnv2+t+31d7RzyEAYAd4u2fnIhHL6N/Q==
 
+"@floating-ui/core@^1.3.1":
+  version "1.3.1"
+  resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/@floating-ui/core/-/core-1.3.1.tgz#4d795b649cc3b1cbb760d191c80dcb4353c9a366"
+  integrity sha512-Bu+AMaXNjrpjh41znzHqaz3r2Nr8hHuHZT6V2LBKMhyMl0FgKA62PNYbqnfgmzOhoWZj70Zecisbo4H1rotP5g==
+
+"@floating-ui/dom@^1.0.3":
+  version "1.4.5"
+  resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/@floating-ui/dom/-/dom-1.4.5.tgz#336dfb9870c98b471ff5802002982e489b8bd1c5"
+  integrity sha512-96KnRWkRnuBSSFbj0sFGwwOUd8EkiecINVl0O9wiZlZ64EkpyAOG3Xc2vKKNJmru0Z7RqWNymA+6b8OZqjgyyw==
+  dependencies:
+    "@floating-ui/core" "^1.3.1"
+
+"@ithaka/focus-trap@2.0.1":
+  version "2.0.1"
+  resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/@ithaka/focus-trap/-/focus-trap-2.0.1.tgz#d899a94a512c4fb491bfde4cb3484487fb816a8a"
+  integrity sha512-xfMhNF4Wqp/l8Ha1ArXpGfXjjIudPNYZMys+G2QaRigLCPBW38Vp+Rkp08+idiLoXHAp6YwoYli5nZRYkNuRug==
+
+"@ithaka/pharos@^12.20.1":
+  version "12.20.1"
+  resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/@ithaka/pharos/-/pharos-12.20.1.tgz#5156ec8233f81a0314d1e6787a95885d24cb3838"
+  integrity sha512-tEMAjUCSRAk6TVXA5nLdOzLdOPrmpONnlevJnPtCjRAom6xeZRh+OLWxBiNt4yO7GjYHrr163fU1Yodoog1g9Q==
+  dependencies:
+    "@floating-ui/dom" "^1.0.3"
+    "@ithaka/focus-trap" "2.0.1"
+    "@lit-labs/scoped-registry-mixin" "^1.0.0"
+    "@open-wc/dedupe-mixin" "^1.3.0"
+    lit "^2.0.0"
+    uuid "^9.0.0"
+
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
   resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz#7e02e6eb5df901aaedb08514203b096614024098"
@@ -417,6 +446,26 @@
   resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
+"@lit-labs/scoped-registry-mixin@^1.0.0":
+  version "1.0.1"
+  resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/@lit-labs/scoped-registry-mixin/-/scoped-registry-mixin-1.0.1.tgz#0ad266c029f1eb385711d2cd26252baadf145a5d"
+  integrity sha512-7aKnBKb5izcTjICO4VdeQLRYpZoB8FepJjG7TmE2oe0cU8cb4MUA4NFCjze+vbE+wP/55xv4dAMFOuJN9EG26w==
+  dependencies:
+    "@lit/reactive-element" "^1.0.0"
+    lit "^2.0.0"
+
+"@lit-labs/ssr-dom-shim@^1.0.0", "@lit-labs/ssr-dom-shim@^1.1.0":
+  version "1.1.1"
+  resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/@lit-labs/ssr-dom-shim/-/ssr-dom-shim-1.1.1.tgz#64df34e2f12e68e78ac57e571d25ec07fa460ca9"
+  integrity sha512-kXOeFbfCm4fFf2A3WwVEeQj55tMZa8c8/f9AKHMobQMkzNUfUj+antR3fRPaZJawsa1aZiP/Da3ndpZrwEe4rQ==
+
+"@lit/reactive-element@^1.0.0", "@lit/reactive-element@^1.3.0", "@lit/reactive-element@^1.6.0":
+  version "1.6.2"
+  resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/@lit/reactive-element/-/reactive-element-1.6.2.tgz#c256690f82f2d7d0ffb0b1cdf68dcb1ec86cea28"
+  integrity sha512-rDfl+QnCYjuIGf5xI2sVJWdYIi56CTCwWa+nidKYX6oIuBYwUbT/vX4qbUDlHiZKJ/3FRNQ/tWJui44p6/stSA==
+  dependencies:
+    "@lit-labs/ssr-dom-shim" "^1.0.0"
+
 "@module-federation/automatic-vendor-federation@^1.2.1":
   version "1.2.1"
   resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/@module-federation/automatic-vendor-federation/-/automatic-vendor-federation-1.2.1.tgz#22b095ae8c74ca9080f9d287b8ebd8c4a7f9d8c2"
@@ -437,6 +486,11 @@
     deepmerge "^4.2.2"
     flatted "^3.0.0"
     node-fetch "^2.6.0"
+
+"@open-wc/dedupe-mixin@^1.3.0":
+  version "1.4.0"
+  resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/@open-wc/dedupe-mixin/-/dedupe-mixin-1.4.0.tgz#b3c58f8699b197bb5e923d624c720e67c9f324d6"
+  integrity sha512-Sj7gKl1TLcDbF7B6KUhtvr+1UCxdhMbNY5KxdU5IfMFWqL8oy1ZeAcCANjoB1TL0AJTcPmcCFsCbHf8X2jGDUA==
 
 "@types/body-parser@*":
   version "1.19.2"
@@ -591,6 +645,11 @@
   integrity sha512-f0KEEe05NvUnat+boPTZ0dgaLZ4SfSouXUgv5noUiefG2ajgKjmETo9ZJyuqsl7dfl2aHlLJUiki6B4ZYldiiw==
   dependencies:
     "@types/node" "*"
+
+"@types/trusted-types@^2.0.2":
+  version "2.0.3"
+  resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/@types/trusted-types/-/trusted-types-2.0.3.tgz#a136f83b0758698df454e328759dbd3d44555311"
+  integrity sha512-NfQ4gyz38SL8sDNrSixxU2Os1a5xcdFxipAFxYEuLUlvU2uDwS4NUpsImcf1//SlWItCVMMLiylsxbmNMToV/g==
 
 "@types/ws@^8.5.1":
   version "8.5.5"
@@ -2195,6 +2254,31 @@ kind-of@^6.0.2:
   resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
+lit-element@^3.3.0:
+  version "3.3.2"
+  resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/lit-element/-/lit-element-3.3.2.tgz#9913bf220b85065f0e5f1bb8878cc44f36b50cfa"
+  integrity sha512-xXAeVWKGr4/njq0rGC9dethMnYCq5hpKYrgQZYTzawt9YQhMiXfD+T1RgrdY3NamOxwq2aXlb0vOI6e29CKgVQ==
+  dependencies:
+    "@lit-labs/ssr-dom-shim" "^1.1.0"
+    "@lit/reactive-element" "^1.3.0"
+    lit-html "^2.7.0"
+
+lit-html@^2.7.0:
+  version "2.7.5"
+  resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/lit-html/-/lit-html-2.7.5.tgz#0c1b9d381abe20c01475ae53ea4b07bf4c923eb8"
+  integrity sha512-YqUzpisJodwKIlbMFCtyrp58oLloKGnnPLMJ1t23cbfIJjg/H9pvLWK4XS69YeubK5HUs1UE4ys9w5dP1zg6IA==
+  dependencies:
+    "@types/trusted-types" "^2.0.2"
+
+lit@^2.0.0:
+  version "2.7.6"
+  resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/lit/-/lit-2.7.6.tgz#810007b876ed43e0c70124de91831921598b1665"
+  integrity sha512-1amFHA7t4VaaDe+vdQejSVBklwtH9svGoG6/dZi9JhxtJBBlqY5D1RV7iLUYY0trCqQc4NfhYYZilZiVHt7Hxg==
+  dependencies:
+    "@lit/reactive-element" "^1.6.0"
+    lit-element "^3.3.0"
+    lit-html "^2.7.0"
+
 loader-runner@^4.2.0:
   version "4.3.0"
   resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/loader-runner/-/loader-runner-4.3.0.tgz#c1b4a163b99f614830353b16755e7149ac2314e1"
@@ -3262,6 +3346,11 @@ uuid@^8.3.2:
   version "8.3.2"
   resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
+
+uuid@^9.0.0:
+  version "9.0.0"
+  resolved "https://artifactory.acorn.cirrostratus.org/artifactory/api/npm/npms/uuid/-/uuid-9.0.0.tgz#592f550650024a38ceb0c562f2f6aa435761efb5"
+  integrity sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==
 
 vary@~1.1.2:
   version "1.1.2"

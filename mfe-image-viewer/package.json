@@ -24,6 +24,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
+    "@ithaka/pharos": "^12.20.1",
     "vue": "^3.3.4"
   }
 }
