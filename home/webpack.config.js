@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
-const deps = require("./package.json");
+const packageJson = require("./package.json");
 
 // const { readFileSync } = require('fs');
 // const tokens = readFileSync(__dirname + '/../.env')
@@ -70,7 +70,15 @@ module.exports = {
                 mfeNavigation: "mfeNavigation@http://localhost:3002/remoteEntry.js",
                 mfeImageViewer: "mfeImageViewer@http://localhost:3003/remoteEntry.js",
                 mfeImageRecommender: "mfeImageRecommender@http://localhost:3005/remoteEntry.js"
-            }
+            },
+            shared: {
+                ...packageJson.dependencies,
+                "react": { singleton: true },
+                "react-dom": { singleton: true },
+                "@ithaka/pharos/": {
+                    requiredVersion: packageJson.dependencies["@ithaka/pharos"],
+                },
+            },
         }),
         // new ModuleFederationPlugin({
         //     name: 'home',

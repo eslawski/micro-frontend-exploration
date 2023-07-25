@@ -2,7 +2,7 @@ const { VueLoaderPlugin } = require("vue-loader");
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
-const deps = require("./package.json");
+const packageJson = require("./package.json");
 const webpack = require("webpack");
 
 // const { readFileSync } = require('fs');
@@ -51,6 +51,7 @@ module.exports = {
                     options: {
                         compilerOptions: {
                             hotReload: false,
+                            isCustomElement: (tag) => tag.startsWith(`mfe-image-viewer-pharos-`),
                         },
                     },
                 },
@@ -80,7 +81,13 @@ module.exports = {
             },
             remotes: {
                 mfeImage: "mfeImage@http://localhost:3004/remoteEntry.js"
-            }
+            },
+            shared: {
+                ...packageJson.dependencies,
+                "@ithaka/pharos/": {
+                    requiredVersion: packageJson.dependencies["@ithaka/pharos"],
+                },
+            },
         }),
         // new ModuleFederationPlugin({
         //     name: 'home',

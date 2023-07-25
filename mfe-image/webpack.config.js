@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
-const deps = require("./package.json");
+const packageJson = require("./package.json");
 
 // const { readFileSync } = require('fs');
 // const tokens = readFileSync(__dirname + '/../.env')
@@ -69,7 +69,12 @@ module.exports = {
             filename: "remoteEntry.js",
             exposes: {
                 "./mountImage": "./src/exposedModules/mountImage"
-            }
+            },
+            shared: {
+                ...packageJson.dependencies,
+                "react": { singleton: true },
+                "react-dom": { singleton: true },
+            },
         }),
         // new ModuleFederationPlugin({
         //     name: 'home',

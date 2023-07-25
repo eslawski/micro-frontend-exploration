@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
-const deps = require("./package.json");
+const packageJson = require("./package.json");
 const TerserPlugin = require("terser-webpack-plugin");
 
 // const { readFileSync } = require('fs');
@@ -71,7 +71,15 @@ module.exports = {
             exposes: {
                 "./mountHeader": "./src/exposedModules/mountHeader",
                 "./mountFooter": "./src/exposedModules/mountFooter",
-            }
+            },
+            shared: {
+                ...packageJson.dependencies,
+                "react": { singleton: true },
+                "react-dom": { singleton: true },
+                "@ithaka/pharos/": {
+                    requiredVersion: packageJson.dependencies["@ithaka/pharos"],
+                },
+            },
         }),
         // new ModuleFederationPlugin({
         //     name: 'home',

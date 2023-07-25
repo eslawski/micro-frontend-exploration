@@ -51,6 +51,7 @@ module.exports = {
                     options: {
                         compilerOptions: {
                             hotReload: false,
+                            isCustomElement: (tag) => tag.startsWith(`mfe-image-recommender-pharos-`),
                         },
                     },
                 },
