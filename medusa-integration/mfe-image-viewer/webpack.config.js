@@ -4,22 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
 const packageJson = require("./package.json");
 const webpack = require("webpack");
-
-// const { readFileSync } = require('fs');
-// const tokens = readFileSync(__dirname + '/../.env')
-//     .toString('utf-8')
-//     .split('\n')
-//     .map(v => v.trim().split('='));
-// process.env.DASHBOARD_READ_TOKEN = tokens.find(([k]) => k === 'DASHBOARD_READ_TOKEN')[1];
-// process.env.DASHBOARD_WRITE_TOKEN = tokens.find(([k]) => k === 'DASHBOARD_WRITE_TOKEN')[1];
-// process.env.DASHBOARD_BASE_URL = tokens.find(([k]) => k === 'DASHBOARD_BASE_URL')[1];
+const env = require("../env");
 
 const {
     container: { ModuleFederationPlugin },
 } = require('webpack');
 const path = require('path');
 
-// const dashboardURL = `${process.env.DASHBOARD_BASE_URL}/env/development/get-remote?token=${process.env.DASHBOARD_READ_TOKEN}`;
+const dashboardURL = `${env.MEDUSA_BASE_URL}/env/development/get-remote?token=${env.MEDUSA_READ_TOKEN}`;
 
 module.exports = {
     entry: './src/index',
@@ -74,13 +66,18 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new ModuleFederationPlugin({
-            name: "mfeImageViewer",
+            name: "mfeImageViewer__REMOTE_VERSION__",
+            library: { type: 'var', name: 'mfeImageViewer__REMOTE_VERSION__' }, // TODO What does this do?
             filename: "remoteEntry.js",
             exposes: {
                 "./mountImageViewer": "./src/exposedModules/mountImageViewer"
             },
             remotes: {
-                mfeImage: "mfeImage@http://localhost:3004/remoteEntry.js"
+                mfeImage: DashboardPlugin.clientVersion({
+                    currentHost: "mfeImageViewer",
+                    remoteName: "mfeImage",
+                    dashboardURL
+                }),
             },
             shared: {
                 ...packageJson.dependencies,
@@ -89,39 +86,6 @@ module.exports = {
                 },
             },
         }),
-        // new ModuleFederationPlugin({
-        //     name: 'home',
-        //     filename: 'remoteEntry.js',
-        //     library: { type: 'var', name: 'home' },
-        //     remotes: {
-        //         dsl: DashboardPlugin.clientVersion({
-        //             currentHost: 'home',
-        //             remoteName: 'dsl',
-        //             dashboardURL,
-        //         }),
-        //         search: DashboardPlugin.clientVersion({
-        //             currentHost: 'home',
-        //             remoteName: 'search',
-        //             dashboardURL,
-        //         }),
-        //         nav: DashboardPlugin.clientVersion({
-        //             currentHost: 'home',
-        //             remoteName: 'nav',
-        //             dashboardURL,
-        //         }),
-        //         utils: DashboardPlugin.clientVersion({
-        //             currentHost: 'home',
-        //             remoteName: 'utils',
-        //             dashboardURL,
-        //         }),
-        //     },
-        //     // sharing code based on the installed version, to allow for multiple vendors with different versions
-        //     shared: {
-        //         ...deps,
-        //         "react": { singleton: true },
-        //         "react-dom": { singleton: true }
-        //     },
-        // }),
         new HtmlWebpackPlugin({
             template: './public/index.html',
             excludeChunks: ['remoteEntry'],
@@ -130,19 +94,20 @@ module.exports = {
             __VUE_OPTIONS_API__: true,
             __VUE_PROD_DEVTOOLS__: false,
         }),
-        // new DashboardPlugin({
-        //     versionStrategy: `${Date.now()}`,
-        //     filename: 'dashboard.json',
-        //     dashboardURL: `${process.env.DASHBOARD_BASE_URL}/update?token=${process.env.DASHBOARD_WRITE_TOKEN}`,
-        //     versionChangeWebhook: 'http://cnn.com/',
-        //     metadata: {
-        //         clientUrl: process.env.DASHBOARD_BASE_URL,
-        //         baseUrl: 'http://localhost:3001',
-        //         source: {
-        //             url: 'https://github.com/module-federation/federation-dashboard/tree/master/dashboard-example/home',
-        //         },
-        //         remote: 'http://localhost:3001/remoteEntry.js',
-        //     },
-        // }),
+        new DashboardPlugin({
+            versionStrategy: `${Date.now()}`,
+            filename: 'dashboard.json',
+            dashboardURL: `${env.MEDUSA_BASE_URL}/update?token=${env.MEDUSA_READ_WRITE_TOKEN}`,
+            versionChangeWebhook: 'https://cnn.com/', // TODO what does this do?
+            metadata: {
+                someMetadata: "foo",
+                clientUrl: env.MEDUSA_BASE_URL,
+                baseUrl: 'http://localhost:3003',
+                source: {
+                    url: "https://github.com/eslawski/micro-frontend-exploration/medusa-integration/mfe-image-viewer",
+                },
+                remote: 'http://localhost:3003/remoteEntry.js',
+            },
+        }),
     ],
 };

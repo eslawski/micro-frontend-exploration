@@ -1,7 +1,17 @@
-# basic-example
-Uses vanilla ModuleFederation. 
-Good example to start from.
+# medusa-integration
+Leverages [Medusa](https://www.medusa.codes/), a third-party solution for increasing visibility of micro frontend architectures and orchestrating them.
 
+## Medusa Integration
+
+1) Login to [Medusa](https://medusa.codes/)
+2) Create an application and generate a `Read` token and also a `Read/Write` token
+3) Copy `env-example.js` and name it simply `env.js`
+4) Update with your token values
+5) Run all the applications (see section below)
+6) Visit your application in Medusa and see MFEs that are have registered
+
+
+## Running Applications
 This project contains 5 applications:
 
 - `home` - The root application host which serves as the main entry point
