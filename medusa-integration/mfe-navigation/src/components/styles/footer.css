@@ -1,0 +1,16 @@
+.footer {
+    border: 3px dotted limegreen;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__socials {
+    margin-top: 8px;
+}
+
+.footer__socials > * {
+    margin-right: 8px;
+}

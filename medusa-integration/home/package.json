@@ -1,0 +1,31 @@
+{
+  "name": "@medusa-playground/home",
+  "version": "0.1.3",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "7.21.4",
+    "@babel/preset-react": "7.18.6",
+    "@module-federation/dashboard-plugin": "2.7.3",
+    "@webpack-cli/serve": "1.7.0",
+    "babel-loader": "9.0.1",
+    "css-loader": "6.7.3",
+    "esbuild-loader": "^2.20.0",
+    "html-webpack-plugin": "5.5.1",
+    "serve": "14.0.1",
+    "style-loader": "3.3.2",
+    "webpack": "5.80.0",
+    "webpack-cli": "4.10.0",
+    "webpack-dev-server": "4.11.1"
+  },
+  "scripts": {
+    "start": "webpack-cli serve",
+    "build": "webpack --mode production",
+    "serve": "serve dist -p 3001",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@ithaka/pharos": "^12.20.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}
