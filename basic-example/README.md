@@ -13,6 +13,11 @@ This project contains 5 applications:
 Each app lives in its own directory.
 To run the `home` app you must also run each of the MFEs.
 
+Here is what the fully rendered `home` app looks like.
+Each dotted line represents a micro frontend (distinguished their color).
+
+![img.png](basic-example.png)
+
 ```shell
 $ cd /<app_dir>
 $ yarn install
