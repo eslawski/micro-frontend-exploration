@@ -72,7 +72,7 @@ module.exports = {
             excludeChunks: ['remoteEntry'],
         }),
         new DashboardPlugin({
-            versionStrategy: `${Date.now()}`,
+            versionStrategy: `${Date.now()}`, // You can change this to be a string for testing purposes
             filename: 'dashboard.json',
             dashboardURL: `${env.MEDUSA_BASE_URL}/update?token=${env.MEDUSA_READ_WRITE_TOKEN}`,
             versionChangeWebhook: 'https://cnn.com/', // TODO What is this?
